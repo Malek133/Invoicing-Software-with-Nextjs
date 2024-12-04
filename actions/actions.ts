@@ -1,6 +1,7 @@
 
 'use server'
 
+import { IProduct } from "@/interface";
  import { PrismaClient } from "@prisma/client";
  import { revalidatePath } from 'next/cache';
 
@@ -56,4 +57,42 @@ export const getProductActions = async ({ userId }: { userId: string | null }) =
       throw error; // Renvoyer l'erreur pour la gérer dans le composant
     }
   };
+
+  export const deleteProductActions = async ({ id }: { id:number }) => {
+    await prisma.product.delete({
+        where: {
+            id,
+        },
+    });
+    // Revalidate after the delete operation
+    revalidatePath('/');
+}
   
+export const updateProductActions = async ({
+  id,
+  title,
+  body,
+  // completed,
+  price,
+  stock
+  // image,
+}: IProduct) => {
+  try {
+    await prisma.product.update({
+      where: { id },
+      data: {
+        title,
+        body,
+        // completed,
+        price,
+        stock,
+        // image,
+      },
+    });
+    // Revalidate the path after updating the product
+    revalidatePath('/');
+  } catch (error) {
+    console.error("Error updating product: ", error);
+    throw error;
+  }
+};

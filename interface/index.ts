@@ -1,5 +1,5 @@
 export interface IProduct {
-    id?:string;
+    id:number;
     title: string;
     body: string | null;
      image: string  | null;

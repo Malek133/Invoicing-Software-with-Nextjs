@@ -13,7 +13,6 @@ import {
 import { IProduct } from "@/interface"
 import { FileDown } from 'lucide-react'
 import jsPDF from 'jspdf'
-// import 'jspdf-autotable'
 import autoTable from 'jspdf-autotable'
 import { Button } from '@/components/ui/button'
 
