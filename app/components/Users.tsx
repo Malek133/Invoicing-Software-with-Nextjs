@@ -6,9 +6,9 @@ const Users = async () => {
 
     if (!user) return <div>Not signed in</div> 
   return (
-    <main className='flex justify-end items-center mx-5 my-2'>
+    <main className='flex justify-start items-center mx-5 my-2'>
     <h1 className='text-xl' >
-    <span className='text-2xl font-semibold'>User:</span> {user?.firstName}</h1> 
+    <span className='text-2xl font-semibold'>Hello :</span> {user?.firstName}</h1> 
     
     </main>
   )

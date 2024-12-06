@@ -25,17 +25,15 @@ export const getProductActions = async ({ userId }: { userId: string | null }) =
     title,
     body,
     stock,
-    // completed,
     price,
-    // image,
+    //  image,
     userId,
   }: {
     title: string;
     body?: string;
-    // completed: boolean;
     price: number;
     stock:number;
-    // image?:string;
+    //  image?:string;
     userId: string | null;
   }) => {
     try {
@@ -43,10 +41,9 @@ export const getProductActions = async ({ userId }: { userId: string | null }) =
         data: {
           title,
           body,
-          // completed,
           price,
           stock,
-          // image,
+          //  image,
           user_id: userId as string,
         },
       });

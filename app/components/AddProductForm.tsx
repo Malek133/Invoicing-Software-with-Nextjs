@@ -27,17 +27,17 @@ import {
 import Spinner from './Spinner'
 import { productFormSchema, ProductFormValues } from '@/schema'
 import { createProductActions } from '@/actions/actions'
-
 const AddProductForm = ({ userId }: { userId: string | null }) => {
     const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
+  // const [imageUrl, setImageUrl] = useState("")
  
   const defaultValues: Partial<ProductFormValues> = {
     title: "",
     body: "",
     price: 0,
-    stock:0
-    // image: "",
+    stock:0,
+    //  image: "",
     // completed: false
   }
 
@@ -57,14 +57,16 @@ const AddProductForm = ({ userId }: { userId: string | null }) => {
     //   completed,
       price,
       stock,
-    //   image: imageUrl,
+      //  image: imageUrl,
       userId
     })
     setLoading(false)
     form.reset()
-    // setImageUrl("")
+    //  setImageUrl("")
     setOpen(false)
   }
+
+ 
 
   return (
     <>
@@ -131,27 +133,6 @@ const AddProductForm = ({ userId }: { userId: string | null }) => {
             )}
           />
 
-          {/* Champ pour télécharger une image */}
-            
-          {/* <FormField
-                  control={form.control}
-                  name="image"
-                  render={() => ( */}
-                    {/* // <FormItem>
-                    //   <FormLabel>Image</FormLabel>
-                    //   <FormControl>
-                    //     <div>
-                    //       <UploadButtonComponent onUploadComplete={handleUploadComplete} />
-                    //       {/* {imageUrl && 
-                    //       <img src={imageUrl} alt="Product" 
-                    //       className="mt-2 max-w-full h-auto" />} */}
-                         {/* </div>
-                       </FormControl>
-                       <FormMessage />
-                     </FormItem>  */}
-                  {/* )}
-                /> */}
-
           {/* Champ pour le prix */}
           <FormField
             control={form.control}
@@ -189,23 +170,7 @@ const AddProductForm = ({ userId }: { userId: string | null }) => {
             )}
           />
 
-          {/* Checkbox pour marquer la tâche comme complétée */}
-          {/* <FormField
-            control={form.control}
-            name="completed"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Completed</FormLabel>
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={(checked) => field.onChange(checked)}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          /> */}
+         
 
           {/* Pied du dialogue avec le bouton pour soumettre le formulaire */}
           <DialogFooter>

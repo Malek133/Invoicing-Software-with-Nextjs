@@ -12,6 +12,7 @@ import {
 
 import { IProduct } from "@/interface"
 import ProductActions from "./ProductActions";
+import Link from "next/link";
 
 interface TableProductProps {
   products: IProduct[];
@@ -34,7 +35,12 @@ const TableProduct: React.FC<TableProductProps> = ({ products }) => {
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.id}>
-              <TableCell className="font-medium">{product.title}</TableCell>
+              <TableCell className="font-medium">
+              <Link href={`/Dashboard/${product.id}`} className="hover:underline">
+                  {product.title}
+                </Link>
+                {/* {product.title} */}
+                </TableCell>
               <TableCell>{product.price.toFixed(2)} €</TableCell>
               <TableCell>{product.stock}</TableCell>
               <TableCell className="text-right">
